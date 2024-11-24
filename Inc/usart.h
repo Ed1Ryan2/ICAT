@@ -40,6 +40,7 @@ extern UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN Private defines */
 
+
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
@@ -47,6 +48,9 @@ void MX_USART2_UART_Init(void);
 void MX_USART3_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+
+void Serial_SendArray(uint8_t *Array, uint16_t Length);
+void Serial_SendString(char *String);
 
 /* USER CODE END Prototypes */
 

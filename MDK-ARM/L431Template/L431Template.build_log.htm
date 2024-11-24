@@ -21,51 +21,77 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-D:\desktop\L431\L431Template\MDK-ARM\L431Template.uvprojx
-Project File Date:  11/22/2024
+D:\desktop\ICAT\MDK-ARM\L431Template.uvprojx
+Project File Date:  11/24/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\ProgrammingTool\MDK\Core\ARM\ARMCC\Bin'
 Build target 'L431Template'
-assembling startup_stm32l431xx.s...
-compiling i2c.c...
-compiling stm32l4xx_hal.c...
-compiling stm32l4xx_hal_i2c_ex.c...
-compiling stm32l4xx_hal_msp.c...
-compiling stm32l4xx_hal_gpio.c...
-compiling stm32l4xx_hal_i2c.c...
-compiling main.c...
-../Src/main.c(65): warning:  #223-D: function "Serial_SendArray" declared implicitly
-  	Serial_SendArray(RxBuffer,sizeof(RxBuffer)/sizeof(RxBuffer[0]));
-../Src/main.c: 1 warning, 0 errors
-compiling stm32l4xx_it.c...
-compiling gpio.c...
-compiling stm32l4xx_hal_flash_ramfunc.c...
-compiling stm32l4xx_hal_rcc_ex.c...
-compiling stm32l4xx_hal_flash_ex.c...
-compiling stm32l4xx_hal_flash.c...
-compiling usart.c...
-../Src/usart.c(39): warning:  #223-D: function "strlen" declared implicitly
-  	HAL_UART_Transmit_IT(&huart3,(uint8_t *)String,strlen(String));
-../Src/usart.c: 1 warning, 0 errors
-compiling stm32l4xx_hal_dma.c...
-compiling stm32l4xx_hal_dma_ex.c...
-compiling stm32l4xx_hal_tim.c...
-compiling stm32l4xx_hal_pwr.c...
-compiling stm32l4xx_hal_rcc.c...
-compiling stm32l4xx_hal_cortex.c...
-compiling stm32l4xx_hal_uart_ex.c...
-compiling stm32l4xx_hal_pwr_ex.c...
-compiling stm32l4xx_hal_exti.c...
-compiling system_stm32l4xx.c...
-compiling stm32l4xx_hal_tim_ex.c...
-compiling stm32l4xx_hal_uart.c...
-linking...
-L431Template\L431Template.axf: Warning: L6988W: Ignoring unknown patch sdcomp-29491-629360.
-Program Size: Code=12320 RO-data=500 RW-data=36 ZI-data=1516  
-Finished: 0 information, 1 warning and 0 error messages.
-FromELF: creating hex file...
-"L431Template\L431Template.axf" - 0 Error(s), 3 Warning(s).
+compiling SHx.c...
+SHx.h(15): error:  #20: identifier "etError" is undefined
+  etError SHTC3_GetId(uint16_t *id);
+SHx.h(26): error:  #20: identifier "etError" is undefined
+  etError SHTC3_GetTempAndHumi(float *temp, float *humi);
+SHx.h(43): error:  #20: identifier "etError" is undefined
+  etError SHTC3_GetTempAndHumiPolling(float *temp, float *humi);
+SHx.h(57): error:  #20: identifier "etError" is undefined
+  etError SHTC3_Sleep(void);
+SHx.h(58): error:  #20: identifier "etError" is undefined
+  etError SHTC3_Wakeup(void);
+SHx.h(61): error:  #20: identifier "etError" is undefined
+  etError SHTC3_SoftReset(void);
+SHx.h(70): warning:  #1-D: last line of file ends without a newline
+  #endif
+SHx.c(18): error:  #20: identifier "etCommands" is undefined
+  static etError SHTC3_WriteCommand(etCommands cmd);
+SHx.c(41): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(50): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(71): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(81): warning:  #223-D: function "DelayMicroSeconds" declared implicitly
+        DelayMicroSeconds(1000);
+SHx.c(94): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(112): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(126): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(139): error:  #20: identifier "NO_ERROR" is undefined
+    if(error == NO_ERROR) {
+SHx.c(145): warning:  #223-D: function "DelayMicroSeconds" declared implicitly
+    DelayMicroSeconds(100); // wait 100 us
+SHx.c(169): warning:  #223-D: function "I2c_StartCondition" declared implicitly
+    I2c_StartCondition();
+SHx.c(172): warning:  #223-D: function "I2c_WriteByte" declared implicitly
+    error = I2c_WriteByte(_Address << 1);
+SHx.c(172): warning:  #188-D: enumerated type mixed with another type
+    error = I2c_WriteByte(_Address << 1);
+SHx.c(182): warning:  #223-D: function "I2c_StartCondition" declared implicitly
+    I2c_StartCondition();
+SHx.c(185): warning:  #223-D: function "I2c_WriteByte" declared implicitly
+    error = I2c_WriteByte((_Address << 1) | 0x01);
+SHx.c(185): warning:  #188-D: enumerated type mixed with another type
+    error = I2c_WriteByte((_Address << 1) | 0x01);
+SHx.c(193): warning:  #223-D: function "I2c_StopCondition" declared implicitly
+    I2c_StopCondition();
+SHx.c(197): error:  #20: identifier "etCommands" is undefined
+  static etError SHTC3_WriteCommand(etCommands cmd){
+SHx.c(201): warning:  #223-D: function "I2c_WriteByte" declared implicitly
+    error = I2c_WriteByte(cmd >> 8);
+SHx.c(201): warning:  #188-D: enumerated type mixed with another type
+    error = I2c_WriteByte(cmd >> 8);
+SHx.c(216): warning:  #223-D: function "I2c_ReadByte" declared implicitly
+    bytes[0] = I2c_ReadByte(ACK);
+SHx.c(216): error:  #20: identifier "ACK" is undefined
+    bytes[0] = I2c_ReadByte(ACK);
+SHx.c(250): error:  #20: identifier "CHECKSUM_ERROR" is undefined
+      return CHECKSUM_ERROR;
+SHx.c(252): error:  #20: identifier "NO_ERROR" is undefined
+      return NO_ERROR;
+SHx.c: 13 warnings, 18 errors
+"L431Template\L431Template.axf" - 18 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -89,7 +115,8 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE@6.1.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Build Time Elapsed:  00:00:14
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
