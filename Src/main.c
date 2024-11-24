@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
 #include "Led.h"
+#include "BH1705.h"
 
 /* USER CODE END Includes */
 
@@ -77,7 +78,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	
+	uint32_t Lux;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -104,8 +105,6 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart3,RxBuffer,20);
-
 
   /* USER CODE END 2 */
 
@@ -114,9 +113,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  Lux = BH1750_ReadLightIntensity();
     /* USER CODE BEGIN 3 */
-	  Led_Init();
+	  printf("π‚’’«ø∂»:%4d LUX\r\n",Lux);
+	  HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

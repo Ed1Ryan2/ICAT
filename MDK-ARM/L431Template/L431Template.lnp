@@ -26,6 +26,9 @@
 "l431template\stm32l4xx_hal_uart.o"
 "l431template\stm32l4xx_hal_uart_ex.o"
 "l431template\system_stm32l4xx.o"
+"l431template\shx.o"
+"l431template\led.o"
+"l431template\bh1705.o"
 --library_type=microlib --strict --scatter "L431Template\L431Template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

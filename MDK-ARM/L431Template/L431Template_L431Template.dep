@@ -1,7 +1,7 @@
 Dependencies for Project 'L431Template', Target 'L431Template': (DO NOT MODIFY !)
 CompilerVersion: 5050106::V5.05 update 1 (build 106)::.\ARMCC
-F (startup_stm32l431xx.s)(0x6743323D)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include--pd "__UVISION_VERSION SETA 540" --pd "STM32L431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32l431xx.lst --xref -o l431template\startup_stm32l431xx.o --depend l431template\startup_stm32l431xx.d)
-F (../Src/main.c)(0x6743327A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\main.o --omf_browse l431template\main.crf --depend l431template\main.d)
+F (startup_stm32l431xx.s)(0x674344F4)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include--pd "__UVISION_VERSION SETA 540" --pd "STM32L431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32l431xx.lst --xref -o l431template\startup_stm32l431xx.o --depend l431template\startup_stm32l431xx.d)
+F (../Src/main.c)(0x67435137)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\main.o --omf_browse l431template\main.crf --depend l431template\main.d)
 I (../Inc/main.h)(0x6741F136)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h)(0x673F4B21)
 I (../Inc/stm32l4xx_hal_conf.h)(0x6741F136)
@@ -37,7 +37,8 @@ I (../Inc/i2c.h)(0x6743323A)
 I (../Inc/usart.h)(0x67432F98)
 I (../Inc/gpio.h)(0x6741F136)
 I (D:\ProgrammingTool\MDK\Core\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (../MDK-ARM/Led.h)(0x67433181)
+I (../MDK-ARM/Led.h)(0x67434F4B)
+I (../MDK-ARM/BH1705.h)(0x67434F4B)
 F (../Src/gpio.c)(0x6741F136)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\gpio.o --omf_browse l431template\gpio.crf --depend l431template\gpio.d)
 I (../Inc/gpio.h)(0x6741F136)
 I (../Inc/main.h)(0x6741F136)
@@ -104,7 +105,7 @@ I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h)(0x673F4B21)
-F (../Src/usart.c)(0x6741F136)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\usart.o --omf_browse l431template\usart.crf --depend l431template\usart.d)
+F (../Src/usart.c)(0x67434EB7)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\usart.o --omf_browse l431template\usart.crf --depend l431template\usart.d)
 I (../Inc/usart.h)(0x67432F98)
 I (../Inc/main.h)(0x6741F136)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h)(0x673F4B21)
@@ -823,9 +824,75 @@ I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h)(0x673F4B21)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h)(0x673F4B21)
-F (.\Led.h)(0x67433181)()
-F (.\SHx.c)(0x67433862)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\shx.o --omf_browse l431template\shx.crf --depend l431template\shx.d)
-I (SHx.h)(0x67433491)
+F (.\SHx.c)(0x67434574)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\shx.o --omf_browse l431template\shx.crf --depend l431template\shx.d)
+I (SHx.h)(0x67434586)
+I (../Inc/main.h)(0x6741F136)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h)(0x673F4B21)
+I (../Inc/stm32l4xx_hal_conf.h)(0x6741F136)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h)(0x673F4B21)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x673F4B21)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h)(0x673F4B20)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x673F4AEA)
+I (D:\ProgrammingTool\MDK\Core\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x673F4B21)
+I (D:\ProgrammingTool\MDK\Core\ARM\ARMCC\include\stddef.h)(0x5475F300)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h)(0x673F4B21)
+F (.\Led.c)(0x67434552)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\led.o --omf_browse l431template\led.crf --depend l431template\led.d)
+I (Led.h)(0x67434F4B)
+I (../Inc/main.h)(0x6741F136)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h)(0x673F4B21)
+I (../Inc/stm32l4xx_hal_conf.h)(0x6741F136)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h)(0x673F4B21)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x673F4B21)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h)(0x673F4B20)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x673F4AEA)
+I (D:\ProgrammingTool\MDK\Core\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x673F4AEA)
+I (../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x673F4B21)
+I (D:\ProgrammingTool\MDK\Core\ARM\ARMCC\include\stddef.h)(0x5475F300)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h)(0x673F4B21)
+I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h)(0x673F4B21)
+F (.\BH1705.h)(0x67434F4B)()
+F (.\BH1705.c)(0x67434E35)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc -I ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../Drivers/CMSIS/Include -I ../MDK-ARM-I.\RTE\_L431Template-ID:\ProgrammingTool\MDK\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\ProgrammingTool\MDK\Pack\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="540" -DSTM32L431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L431xx-o l431template\bh1705.o --omf_browse l431template\bh1705.crf --depend l431template\bh1705.d)
+I (BH1705.h)(0x67434F4B)
 I (../Inc/main.h)(0x6741F136)
 I (../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h)(0x673F4B21)
 I (../Inc/stm32l4xx_hal_conf.h)(0x6741F136)

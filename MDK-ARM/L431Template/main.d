@@ -36,3 +36,4 @@ l431template\main.o: ../Inc/usart.h
 l431template\main.o: ../Inc/gpio.h
 l431template\main.o: D:\ProgrammingTool\MDK\Core\ARM\ARMCC\Bin\..\include\stdio.h
 l431template\main.o: ../MDK-ARM/Led.h
+l431template\main.o: ../MDK-ARM/BH1705.h

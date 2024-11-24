@@ -744,14 +744,24 @@
           <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>Led.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Led.h</FilePath>
-            </File>
-            <File>
               <FileName>SHx.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SHx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>BH1705.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BH1705.h</FilePath>
+            </File>
+            <File>
+              <FileName>BH1705.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BH1705.c</FilePath>
             </File>
           </Files>
         </Group>
