@@ -2,7 +2,7 @@
 
 extern I2C_HandleTypeDef hi2c1;
 
-void GY30_WR_CMD(uint8_t cmd)
+void BH1707_WR_CMD(uint8_t cmd)
 {
 	HAL_I2C_Master_Transmit(&hi2c1, 0x46, &cmd,1, 0x100);
 	//HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
@@ -12,9 +12,9 @@ void GY30_WR_CMD(uint8_t cmd)
 
 void BH1750_Init(void)
 {
-	GY30_WR_CMD(0x01);
-	GY30_WR_CMD(0x10);
-	GY30_WR_CMD(0x47);
+	BH1707_WR_CMD(0x01);
+	BH1707_WR_CMD(0x10);
+	BH1707_WR_CMD(0x47);
 	
 }
 

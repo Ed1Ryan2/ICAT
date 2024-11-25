@@ -65,6 +65,10 @@ void Error_Handler(void);
 #define GREEN_GPIO_Port GPIOC
 #define BLUE_Pin GPIO_PIN_2
 #define BLUE_GPIO_Port GPIOC
+#define LoraM1_Pin GPIO_PIN_2
+#define LoraM1_GPIO_Port GPIOD
+#define LoraM0_Pin GPIO_PIN_4
+#define LoraM0_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

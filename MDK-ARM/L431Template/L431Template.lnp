@@ -3,6 +3,7 @@
 "l431template\main.o"
 "l431template\gpio.o"
 "l431template\i2c.o"
+"l431template\tim.o"
 "l431template\usart.o"
 "l431template\stm32l4xx_it.o"
 "l431template\stm32l4xx_hal_msp.o"

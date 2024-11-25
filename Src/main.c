@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -48,9 +49,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-unsigned char state = 0;
-uint8_t Hello[] = "HelloWorld\r\n";
-uint8_t RxBuffer[20] = "12312";
+uint8_t SHT3X_Modecommand_Buffer[2]={0x22,0x36}; //periodic mode commands 
+uint8_t SHT3X_Fetchcommand_Bbuffer[2]={0xE0,0x00};//读取测量结果
+uint8_t SHT3X_Data_Buffer[6]; //byte0,1为温度 byte4,5为湿度
+float Humidity_S1; //湿度 正数
+float Temperature_S1; //温度 可能为负数
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -62,10 +66,17 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if(htim == &htim2)
+	{
+		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_2);
+	}
+}
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	HAL_UART_Receive_IT(&huart3,RxBuffer,20);
-	Serial_SendArray(RxBuffer,sizeof(RxBuffer)/sizeof(RxBuffer[0]));
+	
 }
 
 /* USER CODE END 0 */
@@ -79,6 +90,8 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	uint32_t Lux;
+	uint32_t Tem;
+	uint32_t Shidu;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -103,9 +116,10 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   MX_I2C1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
-
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Modecommand_Buffer,2,0x10); //第一步，发送periodic mode commands，传感器周期性的进行温湿度转换
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -113,10 +127,15 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  Lux = BH1750_ReadLightIntensity();
+
     /* USER CODE BEGIN 3 */
-	  printf("光照强度:%4d LUX\r\n",Lux);
-	  HAL_Delay(500);
+	  Lux = BH1750_ReadLightIntensity();
+	  HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Fetchcommand_Bbuffer,2,0x10); //第二步，随时读取传感器的数据 
+	  HAL_I2C_Master_Receive(&hi2c1,(0x44<<1)+1,SHT3X_Data_Buffer,6,0x10); 
+      Temperature_S1=(float)((((SHT3X_Data_Buffer[0]<<8)+SHT3X_Data_Buffer[1])*175)/65535.0f)-45; //得到摄氏度温度 
+      Humidity_S1=(((SHT3X_Data_Buffer[3]<<8)+SHT3X_Data_Buffer[4])*100)/65535.0f; //可以得到相对湿度
+	  printf("光照强度:%5d LUX 温度:%4.2f 湿度%4.2f\r\n",Lux,Temperature_S1,Humidity_S1);
+	  HAL_Delay(600);
   }
   /* USER CODE END 3 */
 }
