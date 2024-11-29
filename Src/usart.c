@@ -41,7 +41,7 @@ void Serial_SendString(char *String)
 
 void Serial_SendArray(uint8_t *Array, uint16_t Length)
 {
-		HAL_UART_Transmit_IT(&huart3,Array,Length);
+		HAL_UART_Transmit(&huart1,Array,Length,0xFFFF);
 }
 
 

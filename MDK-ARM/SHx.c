@@ -1,41 +1,17 @@
 #include "SHx.h"
 
 extern I2C_HandleTypeDef hi2c1;
+extern uint8_t SHT3X_Modecommand_Buffer[2]; //periodic mode commands 
+extern uint8_t SHT3X_Fetchcommand_Bbuffer[2];//读取测量结果
+extern uint8_t SHT3X_Data_Buffer[6]; //byte0,1为温度 byte4,5为湿度
 
-
-void SHT_WR_CMD(uint8_t cmd)
+void SHT_Init()
 {
-	HAL_I2C_Master_Transmit(&hi2c1, 0x44, &cmd,1, 0x100);
-	//HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-	//HAL_I2C_Mem_Write(&hi2c1 ,0x46,0x00,I2C_MEMADD_SIZE_8BIT,&cmd,1,0x100);
-}
- 
-
-void SHT_Init(void)
-{
-	SHT_WR_CMD(0x2C06<<1|0x00);
-	SHT_WR_CMD(0x10);
-	SHT_WR_CMD(0x47);
-	
+	HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Modecommand_Buffer,2,0x10); //第一步，发送periodic mode commands，传感器周期性的进行温湿度转换
 }
 
-void SHT_READ_DATA(uint8_t data[])
+void SHT_Read()
 {
-//	uint8_t temp = 0X47;
-//	
-//	HAL_I2C_Mem_Write(&hi2c1 ,0x47,0x00,I2C_MEMADD_SIZE_8BIT,&temp,1,0x100);
-	SHT_Init();
-	HAL_I2C_Master_Receive(&hi2c1, 0x46, data, 2, 0x100);
-	//HAL_I2C_Mem_Read_IT(&hi2c1, 0x46, 0X00,I2C_MEMADD_SIZE_8BIT, data, 2);
-	//HAL_I2C_Mem_Read(&hi2c1 ,0x46,0x47,I2C_MEMADD_SIZE_8BIT,data,2,0x100);
-}
- 
-
-uint32_t SHT_Read(void)
-{
-    uint32_t lux = 0;
-    uint8_t sensorData[2] = {0};
-    SHT_READ_DATA(sensorData);
-    lux = (sensorData[0] << 8 | sensorData[1]);
-    return lux;
+	HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Fetchcommand_Bbuffer,2,0x10); //第二步，随时读取传感器的数据 
+	HAL_I2C_Master_Receive(&hi2c1,(0x44<<1)+1,SHT3X_Data_Buffer,6,0x10); 
 }

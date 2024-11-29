@@ -21,6 +21,9 @@ l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio_ex.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h
+l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h
+l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_adc.h
+l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc_ex.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ex.h
@@ -33,6 +36,7 @@ l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h
 l431template\main.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
+l431template\main.o: ../Inc/adc.h
 l431template\main.o: ../Inc/i2c.h
 l431template\main.o: ../Inc/tim.h
 l431template\main.o: ../Inc/usart.h
@@ -40,3 +44,5 @@ l431template\main.o: ../Inc/gpio.h
 l431template\main.o: D:\ProgrammingTool\MDK\Core\ARM\ARMCC\Bin\..\include\stdio.h
 l431template\main.o: ../MDK-ARM/Led.h
 l431template\main.o: ../MDK-ARM/BH1705.h
+l431template\main.o: ../MDK-ARM/ReadSensor.h
+l431template\main.o: ../MDK-ARM/SHx.h

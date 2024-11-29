@@ -3,6 +3,7 @@
 
 #include "main.h"
 
-
+void SHT_Init(void);
+void SHT_Read();
 
 #endif

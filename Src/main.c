@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -28,6 +29,7 @@
 #include "stdio.h"
 #include "Led.h"
 #include "BH1705.h"
+#include "ReadSensor.h"
 
 /* USER CODE END Includes */
 
@@ -49,11 +51,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t SHT3X_Modecommand_Buffer[2]={0x22,0x36}; //periodic mode commands 
-uint8_t SHT3X_Fetchcommand_Bbuffer[2]={0xE0,0x00};//读取测量结果
-uint8_t SHT3X_Data_Buffer[6]; //byte0,1为温度 byte4,5为湿度
-float Humidity_S1; //湿度 正数
-float Temperature_S1; //温度 可能为负数
+uint8_t TxBuffer[4]={0xAB,0xCD,0xDE,0x00};
+uint8_t RxBuffer[10];
 
 /* USER CODE END PV */
 
@@ -66,7 +65,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)//定时器回调函数
 {
 	if(htim == &htim2)
 	{
@@ -76,9 +75,21 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	
+  if (huart->Instance == USART1)
+  {
+    if (RxBuffer[0] == '0')
+    {
+//      HAL_UART_Transmit_IT(&huart1, (uint8_t*)tx_data2, strlen(tx_data2));
+			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_0,GPIO_PIN_SET);
+    }
+		if (RxBuffer[0] == '1')
+    {
+//      HAL_UART_Transmit_IT(&huart1, (uint8_t*)tx_data3, strlen(tx_data3));
+			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_0,GPIO_PIN_RESET);
+    }
+    HAL_UART_Receive_IT(&huart1, RxBuffer, 1);
+  }
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -89,9 +100,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	uint32_t Lux;
-	uint32_t Tem;
-	uint32_t Shidu;
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -112,14 +121,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   MX_I2C1_Init();
   MX_TIM2_Init();
+  MX_ADC1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim2);
-  HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Modecommand_Buffer,2,0x10); //第一步，发送periodic mode commands，传感器周期性的进行温湿度转换
+	HAL_UART_Receive_IT(&huart1, RxBuffer, 1);
+  HAL_TIM_Base_Start_IT(&htim2);//开启定时器2中断
+  Lora_Init();
+	Sensor_Init();
+ 
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,13 +142,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  Lux = BH1750_ReadLightIntensity();
-	  HAL_I2C_Master_Transmit(&hi2c1,0x44<<1,SHT3X_Fetchcommand_Bbuffer,2,0x10); //第二步，随时读取传感器的数据 
-	  HAL_I2C_Master_Receive(&hi2c1,(0x44<<1)+1,SHT3X_Data_Buffer,6,0x10); 
-      Temperature_S1=(float)((((SHT3X_Data_Buffer[0]<<8)+SHT3X_Data_Buffer[1])*175)/65535.0f)-45; //得到摄氏度温度 
-      Humidity_S1=(((SHT3X_Data_Buffer[3]<<8)+SHT3X_Data_Buffer[4])*100)/65535.0f; //可以得到相对湿度
-	  printf("光照强度:%5d LUX 温度:%4.2f 湿度%4.2f\r\n",Lux,Temperature_S1,Humidity_S1);
-	  HAL_Delay(600);
+	  
+    Sensor_Read();
+	  
+	  HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

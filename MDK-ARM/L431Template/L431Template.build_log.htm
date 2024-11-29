@@ -22,12 +22,33 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 D:\desktop\ICAT\MDK-ARM\L431Template.uvprojx
-Project File Date:  11/25/2024
+Project File Date:  11/27/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\ProgrammingTool\MDK\Core\ARM\ARMCC\Bin'
 Build target 'L431Template'
-"L431Template\L431Template.axf" - 0 Error(s), 0 Warning(s).
+compiling main.c...
+../MDK-ARM/Led.h(6): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+../MDK-ARM/SHx.h(7): warning:  #1295-D: Deprecated declaration SHT_Read - give arg types
+  void SHT_Read();
+../MDK-ARM/SHx.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+../MDK-ARM/ReadSensor.h(14): warning:  #1295-D: Deprecated declaration Lora_Init - give arg types
+  void Lora_Init();
+../MDK-ARM/ReadSensor.h(15): warning:  #1295-D: Deprecated declaration Sensor_Init - give arg types
+  void Sensor_Init();
+../MDK-ARM/ReadSensor.h(16): warning:  #1295-D: Deprecated declaration Sensor_Read - give arg types
+  void Sensor_Read();
+../MDK-ARM/ReadSensor.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/main.c: 7 warnings, 0 errors
+linking...
+L431Template\L431Template.axf: Warning: L6988W: Ignoring unknown patch sdcomp-29491-629360.
+Program Size: Code=21064 RO-data=500 RW-data=44 ZI-data=1708  
+Finished: 0 information, 1 warning and 0 error messages.
+FromELF: creating hex file...
+"L431Template\L431Template.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,7 +72,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE@6.1.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
